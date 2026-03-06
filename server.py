@@ -1,6 +1,7 @@
 import asyncio
 import websockets
 import json
+import os
 
 rooms = {}
 
@@ -34,8 +35,9 @@ async def handler(ws):
             print(f"[LEAVE] {player_id} left room:{room_id}")
 
 async def main():
-    print("Server started on port 8765")
-    async with websockets.serve(handler, "0.0.0.0", 8765):
+    port = int(os.environ.get("PORT", 8765))  # ← Renderの環境変数を使う
+    print(f"Server started on port {port}")
+    async with websockets.serve(handler, "0.0.0.0", port):
         await asyncio.Future()
 
 asyncio.run(main())

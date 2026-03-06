@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 websockets>=12.0
+=======
+websockets>=12.0
+>>>>>>> 8de5d37a159f92eb93b8aba2d5c5ccc5fafc4d4e
